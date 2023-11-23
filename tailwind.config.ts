@@ -8,7 +8,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      colors: {},
+      colors: {
+        "alice-blue": "#EEF5FF",
+        "downriver": "#022955"
+      },
       backgroundImage: {},
       fontFamily: {
         "body": ["Ubuntu-Regular", "sans-serif"],
