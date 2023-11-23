@@ -11,7 +11,8 @@ const config: Config = {
       colors: {
         "alice-blue": "#EEF5FF",
         "downriver": "#022955",
-        "blue-genie": "#625AFF"
+        "blue-genie": "#625AFF",
+        "olympian-blue": "#174A89"
       },
       backgroundImage: {},
       fontFamily: {

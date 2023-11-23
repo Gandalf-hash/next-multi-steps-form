@@ -1,8 +1,18 @@
-import React from "react";
-import { AppHeading } from "../ui/heading/heading";
-import { AppPageInput } from "../ui/input/page-input";
+"use client";
 
-export const AppYourInfoSection = () => {
+import React from "react";
+import { AppHeading } from "../heading/heading";
+import { AppPageInput } from "../input/page-input";
+import { AppPrimaryButton } from "../button/primary-button";
+import { useRouter } from "next/navigation";
+
+const AppYourInfoSection = () => {
+  const router = useRouter();
+
+  const handleButtonClick = () => {
+    router.push("/home");
+  };
+
   return (
     <div className="w-full max-w-xl mt-10">
       <div className="flex flex-col space-y-6">
@@ -26,6 +36,12 @@ export const AppYourInfoSection = () => {
           placeholder="e.g. +1 234 567 890"
         />
       </div>
+      <div className="w-full flex place-content-end mt-24 -ml-11">
+        <AppPrimaryButton onClick={handleButtonClick}>
+          Next steps
+        </AppPrimaryButton>
+      </div>
     </div>
   );
 };
+export default AppYourInfoSection;

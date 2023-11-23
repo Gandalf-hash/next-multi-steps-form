@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(
     "https://www.frontendmentor.io/challenges/multistep-form-YVAnSdqQBJ"
   ),
+  icons: "/favicon.ico",
 };
 
 export default function RootLayout({
