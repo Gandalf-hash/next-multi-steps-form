@@ -10,7 +10,8 @@ const config: Config = {
     extend: {
       colors: {
         "alice-blue": "#EEF5FF",
-        "downriver": "#022955"
+        "downriver": "#022955",
+        "blue-genie": "#625AFF"
       },
       backgroundImage: {},
       fontFamily: {
