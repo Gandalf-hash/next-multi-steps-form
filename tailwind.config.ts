@@ -14,7 +14,9 @@ const config: Config = {
         "blue-genie": "#625AFF",
         "olympian-blue": "#174A89"
       },
-      backgroundImage: {},
+      variants: {
+        backgroundColor: ['responsive', 'focus', 'hover', 'active']
+      },
       fontFamily: {
         "body": ["Ubuntu-Regular", "sans-serif"],
         "gs-medium": ['Ubuntu-Medium', 'sans-serif'],
