@@ -14,6 +14,8 @@ const config: Config = {
         "blue-genie": "#625AFF",
         "olympian-blue": "#174A89",
         "radio-checked": "#BEE2FA",
+        "ghost-white": "#F8F9FE",
+        "violet-mix": "#ADA5CC",
       },
       variants: {
         backgroundColor: ["responsive", "focus", "hover", "active"],
