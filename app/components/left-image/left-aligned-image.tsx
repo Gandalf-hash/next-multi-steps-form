@@ -7,11 +7,6 @@ interface LeftAlignedImageProps {
 }
 
 export const LeftAlignedImage = ({ currentStep }: LeftAlignedImageProps) => {
-  const [selectedNumber, setSelectedNumber] = useState<number | null>(null);
-
-  const handleNumberChange = (number: number) => {
-    setSelectedNumber(number);
-  };
   return (
     <div className="relative hidden md:block h-full w-full max-w-xs">
       <div className="absolute left-0 top-12 flex flex-col gap-6">

@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
-import { LeftAlignedImage } from "./components/frame/left-aligned-image";
-import FirstStep from "./ui/first-step/first-step";
+import { LeftAlignedImage } from "./components/left-image/left-aligned-image";
+import { FirstStep } from "./ui/first-step/first-step";
 import SecondPage from "./ui/second-step/second-step";
 
 const App = () => {
@@ -13,7 +13,7 @@ const App = () => {
         <LeftAlignedImage currentStep={currentStep} />
         <div className="mt-12">
           {currentStep === 1 && <FirstStep setCurrentStep={setCurrentStep} />}
-          {currentStep === 2 && <SecondPage />}
+          {currentStep === 2 && <SecondPage setCurrentStep={setCurrentStep} />}
         </div>
       </div>
     </main>

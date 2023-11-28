@@ -17,7 +17,7 @@ export const AppPrimaryButton = ({
       className={clsx(
         "text-white text-lg focus:outline-none focus:ring active:bg-blue-950",
         "rounded-md flex hover:bg-olympian-blue items-center px-4 py-2  bg-downriver-blue",
-        { "cursor-not-allowed": disabled === true }
+        { "cursor-not-allowed": disabled }
       )}
       onClick={onClick}
       disabled={disabled}

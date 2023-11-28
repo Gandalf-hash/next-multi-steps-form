@@ -1,4 +1,4 @@
-import clsx from "clsx";
+import { clsx } from "clsx";
 import React from "react";
 
 interface NumberRadioButtonProps {
@@ -22,12 +22,12 @@ export const NumberRadioButton = ({
         className={clsx(
           "w-10 h-10 border-2 border-white rounded-full flex",
           "items-center justify-center",
-          { "bg-radio-checked": checked === true }
+          { "bg-radio-checked": checked }
         )}
       >
         <span
           className={clsx("text-white font-bold", {
-            "text-black": checked === true,
+            "text-blue-950": checked,
           })}
         >
           {number}
