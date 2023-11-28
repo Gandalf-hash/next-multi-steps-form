@@ -1,9 +1,8 @@
 "use client";
 import React, { useState } from "react";
-import { LeftAlignedImage } from "./ui/frame/left-aligned-image";
-import FirstStep from "./step1/first-step";
-import SecondPage from "./step2/page";
-import { AppPrimaryButton } from "./ui/button/primary-button";
+import { LeftAlignedImage } from "./components/frame/left-aligned-image";
+import FirstStep from "./ui/first-step/first-step";
+import SecondPage from "./ui/second-step/second-step";
 
 const App = () => {
   const [currentStep, setCurrentStep] = useState(1);

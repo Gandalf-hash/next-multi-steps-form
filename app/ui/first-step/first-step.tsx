@@ -1,7 +1,7 @@
+import { AppPrimaryButton } from "@/app/components/button/primary-button";
+import { AppHeading } from "@/app/components/heading/heading";
+import { AppInput } from "@/app/components/input/inputs";
 import React, { ChangeEvent } from "react";
-import { AppInput } from "../ui/input/inputs";
-import { AppHeading } from "../ui/heading/heading";
-import { AppPrimaryButton } from "../ui/button/primary-button";
 
 interface FirstStepProps {
   setCurrentStep: React.Dispatch<React.SetStateAction<number>>;
@@ -37,7 +37,7 @@ const FirstStep = ({ setCurrentStep }: FirstStepProps) => {
           "Please provide your name, email address, and phone number."
         }
       />
-      <div className="flex flex-col space-y-4">
+      <div className="flex flex-col space-y-6 mt-8">
         <AppInput
           value={name}
           required
@@ -66,7 +66,10 @@ const FirstStep = ({ setCurrentStep }: FirstStepProps) => {
           onValidationChange={setIsTelValid}
         />
       </div>
-      <div className="flex justify-end md:mt-40 xl:mt-44">
+      <div
+        className="flex justify-end md:mt-24 xl:mt-32
+      "
+      >
         <AppPrimaryButton
           onClick={handleNextStep}
           disabled={!isNameValid || !isEmailValid || !isTelValid}
