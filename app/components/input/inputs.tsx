@@ -75,7 +75,7 @@ export const AppInput = ({
   return (
     <div className="flex flex-col">
       <div className="relative mb-2 flex flex-row justify-between">
-        <label className="text-downriver">{label}</label>
+        <label className="text-downriver-blue">{label}</label>
         {blurred && validationError && (
           <p className="tracking-[1.08px] font-bold text-red-500">
             {validationError}
@@ -88,7 +88,7 @@ export const AppInput = ({
         placeholder={placeholder}
         onChange={handleInputChange}
         onBlur={handleBlur}
-        className={`h-full w-full rounded-md border-[2px] border-solid bg-transparent py-4 px-6 placeholder-gray-500 text-downriver font-bold focus:border-blue-genie focus:outline-none  ${
+        className={`h-full w-full rounded-md border-[2px] border-solid bg-transparent py-4 px-6 placeholder-gray-500 text-downriver-blue font-bold focus:border-blue-genie focus:outline-none  ${
           validationError ? "border-red-500" : ""
         }`}
       />
