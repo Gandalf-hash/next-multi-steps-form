@@ -3,11 +3,11 @@ import { AppHeading } from "@/app/components/heading/heading";
 import { AppInput } from "@/app/components/input/inputs";
 import React, { ChangeEvent } from "react";
 
-interface FirstStepProps {
+export interface FirstStepProps {
   setCurrentStep: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const FirstStep = ({ setCurrentStep }: FirstStepProps) => {
+export const FirstStep = ({ setCurrentStep }: FirstStepProps) => {
   const [name, setName] = React.useState<string>("");
   const [email, setEmail] = React.useState<string>("");
   const [tel, setTel] = React.useState<string>("");
@@ -16,13 +16,15 @@ const FirstStep = ({ setCurrentStep }: FirstStepProps) => {
   const [isTelValid, setIsTelValid] = React.useState<boolean>(false);
 
   const handleNameChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setName(e.target.value);
+    setName(e.target.value.trim());
   };
+
   const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setEmail(e.target.value);
+    setEmail(e.target.value.trim());
   };
+
   const handleTelChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setTel(e.target.value);
+    setTel(e.target.value.trim());
   };
 
   const handleNextStep = () => {
@@ -30,7 +32,7 @@ const FirstStep = ({ setCurrentStep }: FirstStepProps) => {
   };
 
   return (
-    <div className="flex flex-col max-w-lg xl:max-w-xl w-full ">
+    <div className="flex flex-col max-w-lg xl:max-w-xl w-full">
       <AppHeading
         heading={"Personal info"}
         description={
@@ -78,5 +80,3 @@ const FirstStep = ({ setCurrentStep }: FirstStepProps) => {
     </div>
   );
 };
-
-export default FirstStep;
