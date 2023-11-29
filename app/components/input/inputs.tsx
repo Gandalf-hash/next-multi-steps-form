@@ -22,6 +22,20 @@ export const AppInput = ({
   const [validationError, setValidationError] = useState<string | null>(null);
   const [blurred, setBlurred] = useState<boolean>(false);
 
+  const isValidEmail = (email: string): boolean => {
+    const isEmailValid = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(
+      email
+    );
+
+    return isEmailValid;
+  };
+
+  const isValidPhoneNumber = (phoneNumber: string): boolean => {
+    const isPhoneValid = /^\d{10}$/g.test(phoneNumber);
+
+    return isPhoneValid;
+  };
+
   const handleBlur = (event: FocusEvent<HTMLInputElement>) => {
     setBlurred(true);
     const inputValue = event.target.value.trim();
@@ -50,48 +64,32 @@ export const AppInput = ({
     onChange?.(event);
   };
 
-  const isValidEmail = (email: string): boolean => {
-    const isEmailValid = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(
-      email
-    );
-
-    if (!isEmailValid) {
-      setValidationError("Invalid email format");
-    }
-
-    return isEmailValid;
-  };
-
-  const isValidPhoneNumber = (phoneNumber: string): boolean => {
-    const isPhoneValid = /^\d{10}$/g.test(phoneNumber);
-
-    if (!isPhoneValid) {
-      setValidationError("Invalid phone number format");
-    }
-
-    return isPhoneValid;
+  const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
   };
 
   return (
-    <div className="flex flex-col">
-      <div className="relative mb-2 flex flex-row justify-between">
-        <label className="text-downriver-blue">{label}</label>
-        {blurred && validationError && (
-          <p className="tracking-[1.08px] font-bold text-red-500">
-            {validationError}
-          </p>
-        )}
+    <form action="submit" onSubmit={handleFormSubmit}>
+      <div className="flex flex-col">
+        <div className="relative mb-2 flex flex-row justify-between">
+          <label className="text-downriver-blue">{label}</label>
+          {blurred && validationError && (
+            <p className="tracking-[1.08px] font-bold text-red-500">
+              {validationError}
+            </p>
+          )}
+        </div>
+        <input
+          type={type}
+          value={value ?? ""}
+          placeholder={placeholder}
+          onChange={handleInputChange}
+          onBlur={handleBlur}
+          className={`h-full w-full rounded-md border-[2px] border-solid bg-transparent py-4 px-6 placeholder-gray-500 text-downriver-blue font-bold focus:border-blue-genie focus:outline-none  ${
+            validationError ? "border-red-500" : ""
+          }`}
+        />
       </div>
-      <input
-        type={type}
-        value={value ?? ""}
-        placeholder={placeholder}
-        onChange={handleInputChange}
-        onBlur={handleBlur}
-        className={`h-full w-full rounded-md border-[2px] border-solid bg-transparent py-4 px-6 placeholder-gray-500 text-downriver-blue font-bold focus:border-blue-genie focus:outline-none  ${
-          validationError ? "border-red-500" : ""
-        }`}
-      />
-    </div>
+    </form>
   );
 };
