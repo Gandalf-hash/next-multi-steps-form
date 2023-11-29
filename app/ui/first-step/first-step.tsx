@@ -1,6 +1,6 @@
 import { AppPrimaryButton } from "@/app/components/button/primary-button";
+import { AppForm } from "@/app/components/form/form";
 import { AppHeading } from "@/app/components/heading/heading";
-import { AppInput } from "@/app/components/input/inputs";
 import React, { ChangeEvent } from "react";
 
 export interface FirstStepProps {
@@ -40,7 +40,7 @@ export const FirstStep = ({ setCurrentStep }: FirstStepProps) => {
         }
       />
       <div className="flex flex-col space-y-6 mt-8">
-        <AppInput
+        <AppForm
           value={name}
           required
           label="Name"
@@ -49,7 +49,7 @@ export const FirstStep = ({ setCurrentStep }: FirstStepProps) => {
           onChange={handleNameChange}
           onValidationChange={setIsNameValid}
         />
-        <AppInput
+        <AppForm
           value={email}
           required
           label="Email Address"
@@ -58,7 +58,7 @@ export const FirstStep = ({ setCurrentStep }: FirstStepProps) => {
           onChange={handleEmailChange}
           onValidationChange={setIsEmailValid}
         />
-        <AppInput
+        <AppForm
           value={tel}
           required
           label="Phone Numbers"

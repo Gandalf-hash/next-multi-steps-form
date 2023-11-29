@@ -12,8 +12,7 @@ export const LeftAlignedImage = ({ currentStep }: LeftAlignedImageProps) => {
   const handleRadioButtonChange = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
-    const val = setSelectedStep(event.target.value);
-    console.log(val);
+    setSelectedStep(event.target.value);
   };
 
   return (
@@ -49,7 +48,7 @@ export const LeftAlignedImage = ({ currentStep }: LeftAlignedImageProps) => {
         />
       </div>
 
-      <div>
+      <div className="">
         <Image
           className="object-cover object-left hidden md:block"
           src={"/assets/images/bg-sidebar-desktop.svg"}

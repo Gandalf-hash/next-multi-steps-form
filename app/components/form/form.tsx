@@ -1,6 +1,6 @@
 import React, { ChangeEvent, FocusEvent, useState } from "react";
 
-interface InputProps {
+interface FormProps {
   placeholder?: string;
   label: string;
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
@@ -10,7 +10,7 @@ interface InputProps {
   value: string | number;
 }
 
-export const AppInput = ({
+export const AppForm = ({
   placeholder,
   onChange,
   type = "email",
@@ -18,7 +18,7 @@ export const AppInput = ({
   onValidationChange,
   value,
   label,
-}: InputProps) => {
+}: FormProps) => {
   const [validationError, setValidationError] = useState<string | null>(null);
   const [blurred, setBlurred] = useState<boolean>(false);
 
