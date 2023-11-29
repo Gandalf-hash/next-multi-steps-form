@@ -30,11 +30,11 @@ function SecondPage({ setCurrentStep }: SecondStepProps) {
             heading={"Select your plan"}
             description={" You have the option of monthly or yearly billing."}
           />
-          {isMonthly ? <AppYearlyPlan /> : <AppMonthlyPlan />}
+          {isMonthly ? <AppMonthlyPlan /> : <AppYearlyPlan />}
         </div>
         <div className="flex justify-center mt-8">
           <AppToggleSwitch
-            checked={isMonthly}
+            checked={!isMonthly}
             onToggleChange={handleToggleChange}
           />
         </div>

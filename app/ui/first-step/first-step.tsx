@@ -39,7 +39,7 @@ export const FirstStep = ({ setCurrentStep }: FirstStepProps) => {
           "Please provide your name, email address, and phone number."
         }
       />
-      <div className="flex flex-col space-y-6 mt-8">
+      <div className="flex flex-col space-y-6 md:mt-8">
         <AppForm
           value={name}
           required
@@ -69,7 +69,7 @@ export const FirstStep = ({ setCurrentStep }: FirstStepProps) => {
         />
       </div>
       <div
-        className="flex justify-end md:mt-24 xl:mt-32
+        className="flex justify-end mt-24 xl:mt-32
       "
       >
         <AppPrimaryButton
