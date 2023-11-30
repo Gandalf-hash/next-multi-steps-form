@@ -21,7 +21,7 @@ const chooseMonthlyPlan = [
 ];
 
 export const AppMonthlyPlan = () => {
-  const [selectedMonthlyPlan, setSelectedMonthlyPlan] = useState(
+  const [selectedMonthlyPlan, setSelectedMonthlyPlan] = useState<string>(
     chooseMonthlyPlan[0].plan
   );
 

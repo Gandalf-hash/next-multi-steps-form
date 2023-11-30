@@ -24,7 +24,7 @@ const chooseYearlyPlan = [
 ];
 
 export const AppYearlyPlan = () => {
-  const [selectedYearlyPlan, setSelectedYearlyPlan] = useState(
+  const [selectedYearlyPlan, setSelectedYearlyPlan] = useState<string>(
     chooseYearlyPlan[0].plan
   );
 
