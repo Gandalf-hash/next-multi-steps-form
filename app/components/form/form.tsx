@@ -23,23 +23,14 @@ export const AppForm = ({
   const [blurred, setBlurred] = useState<boolean>(false);
 
   const isValidEmail = (email: string): boolean => {
-    const isEmailValid = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(
-      email
-    );
-
-    return isEmailValid;
+    return /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(email);
   };
 
   const isValidPhoneNumber = (phoneNumber: string): boolean => {
-    const isPhoneValid = /^\d{10}$/g.test(phoneNumber);
-
-    return isPhoneValid;
+    return /^\d{10}$/g.test(phoneNumber);
   };
 
-  const handleBlur = (event: FocusEvent<HTMLInputElement>) => {
-    setBlurred(true);
-    const inputValue = event.target.value.trim();
-
+  const validateInput = (inputValue: string) => {
     if (required && !inputValue) {
       setValidationError("This field is required");
       onValidationChange?.(false);
@@ -59,9 +50,15 @@ export const AppForm = ({
     }
   };
 
+  const handleBlur = (event: FocusEvent<HTMLInputElement>) => {
+    setBlurred(true);
+    validateInput(event.target.value.trim());
+  };
+
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     setBlurred(false);
     onChange?.(event);
+    validateInput(event.target.value.trim());
   };
 
   const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {

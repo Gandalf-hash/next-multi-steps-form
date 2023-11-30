@@ -47,7 +47,7 @@ export const FirstStep = ({ setCurrentStep }: FirstStepProps) => {
           type="text"
           placeholder="e.g. Stephen King"
           onChange={handleNameChange}
-          onValidationChange={setIsNameValid}
+          onValidationChange={(isValid) => setIsNameValid(isValid)}
         />
         <AppForm
           value={email}
@@ -56,7 +56,7 @@ export const FirstStep = ({ setCurrentStep }: FirstStepProps) => {
           type="email"
           placeholder="e.g. stephenking@lorem.com"
           onChange={handleEmailChange}
-          onValidationChange={setIsEmailValid}
+          onValidationChange={(isValid) => setIsEmailValid(isValid)}
         />
         <AppForm
           value={tel}
@@ -65,7 +65,7 @@ export const FirstStep = ({ setCurrentStep }: FirstStepProps) => {
           type="tel"
           placeholder=" e.g. +1 234 567 890"
           onChange={handleTelChange}
-          onValidationChange={setIsTelValid}
+          onValidationChange={(isValid) => setIsTelValid(isValid)}
         />
       </div>
       <div
