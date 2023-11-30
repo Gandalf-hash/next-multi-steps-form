@@ -28,15 +28,11 @@ export const AppNumberRadioButton = ({
       <div
         className={clsx(
           "w-10 h-10 border-2 border-white rounded-full flex",
-          "items-center justify-center",
+          "items-center text-white justify-center",
           { "bg-radio-checked": checked }
         )}
       >
-        <span
-          className={clsx("text-white font-bold", {
-            "text-black": checked,
-          })}
-        >
+        <span className={clsx("font-black", { "text-black": checked })}>
           {number}
         </span>
       </div>

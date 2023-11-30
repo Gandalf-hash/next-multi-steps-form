@@ -16,7 +16,9 @@ export const AppPrimaryButton = ({
 }: ButtonProps) => {
   return (
     <button
-      className={clsx(className, disabled)}
+      className={clsx(className, {
+        "bg-gray-300 pointer-events-none": disabled,
+      })}
       onClick={onClick}
       disabled={disabled}
     >
