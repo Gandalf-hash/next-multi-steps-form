@@ -5,7 +5,7 @@ import { AppMonthlyPlan } from "./monthly-plans";
 import { AppYearlyPlan } from "./yearly-plans";
 import { AppToggleSwitch } from "@/app/components/toggle-switch/toggle-switch";
 import { AppBackButton } from "@/app/components/button/back-button";
-import { AppPrimaryButton } from "@/app/components/button/primary-button";
+import { AppPrimaryButton } from "@/app/components/button/next-button";
 
 interface SecondStepProps extends FirstStepProps {}
 
@@ -40,7 +40,11 @@ function SecondPage({ setCurrentStep }: SecondStepProps) {
         </div>
         <div className="flex flex-row items-center md:mt-12 xl:mt-44 justify-between">
           <AppBackButton onClick={handleBackStep} />
-          <AppPrimaryButton onClick={handleNextStep} disabled={false} />
+          <AppPrimaryButton
+            className="btn btn-primary"
+            onClick={handleNextStep}
+            disabled={false}
+          />
         </div>
       </div>
     </>

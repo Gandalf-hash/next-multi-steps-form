@@ -1,4 +1,4 @@
-import { AppPrimaryButton } from "@/app/components/button/primary-button";
+import { AppPrimaryButton } from "@/app/components/button/next-button";
 import { AppForm } from "@/app/components/form/form";
 import { AppHeading } from "@/app/components/heading/heading";
 import React, { ChangeEvent } from "react";
@@ -73,6 +73,7 @@ export const FirstStep = ({ setCurrentStep }: FirstStepProps) => {
       "
       >
         <AppPrimaryButton
+          className="btn btn-primary"
           onClick={handleNextStep}
           disabled={!isNameValid || !isEmailValid || !isTelValid}
         />

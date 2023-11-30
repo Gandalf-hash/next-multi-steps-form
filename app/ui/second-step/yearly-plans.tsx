@@ -33,17 +33,13 @@ export const AppYearlyPlan = () => {
   };
   return (
     <>
-      <div className="flex lg:flex-row flex-col gap-4 md:space-y-0 lg:space-x-4 mt-2 lg:mt-8 items-center">
+      <div className="plan-container">
         {chooseYearlyPlan.map(({ image, plan, amount, month }) => (
           <div
             key={plan}
-            className={clsx(
-              "rounded-md w-full cursor-pointer border-2 p-3 lg:p-5 flex",
-              "flex-row gap-6 lg:flex-col lg:w-40 lg:h-48 hover:border-violet-mix",
-              {
-                "border-violet-mix bg-ghost-white": selectedYearlyPlan === plan,
-              }
-            )}
+            className={clsx("plan p-3 lg:p-5 lg:flex-col lg:w-40 lg:h-48", {
+              "border-violet-mix bg-ghost-white": selectedYearlyPlan === plan,
+            })}
             onClick={() => handlePlanClick(plan)}
           >
             <Image
@@ -57,7 +53,7 @@ export const AppYearlyPlan = () => {
               <span className="font-bold lg:text-lg text-olympian-blue">
                 {plan}
               </span>
-              <span className="text-gray-500">{amount}</span>
+              <span className="text-gray-500 tracking-wider">{amount}</span>
               <span className="font-bold text-sm text-olympian-blue">
                 {month}
               </span>
