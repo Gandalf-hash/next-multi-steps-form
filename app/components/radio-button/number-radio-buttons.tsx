@@ -34,7 +34,7 @@ export const AppNumberRadioButton = ({
       >
         <span
           className={clsx("text-white font-bold", {
-            "text-blue-950": checked,
+            "text-black": checked,
           })}
         >
           {number}
