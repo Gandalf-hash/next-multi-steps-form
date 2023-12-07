@@ -21,7 +21,7 @@ const monthlyData = [
 ];
 
 export const AppAddOnsMonthlyPlan = ({
-  currentPlan = "monthly",
+  currentPlan,
 }: {
   currentPlan: string;
 }) => {
@@ -44,7 +44,7 @@ export const AppAddOnsMonthlyPlan = ({
   };
   return (
     <div className="flex gap-6 flex-col justify-center">
-      {currentPlan &&
+      {currentPlan === "monthly" &&
         monthlyData.map(({ service, desc, amount }) => (
           <label
             key={service}

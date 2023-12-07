@@ -2,13 +2,13 @@
 import React, { useState } from "react";
 import { LeftAlignedImage } from "./components/left-image/left-aligned-image";
 import { FirstStep } from "./ui/first-step/first-step";
-import SecondPage from "./ui/second-step/second-step";
 import { ThirdStep } from "./ui/third-step/third-step";
 import { FormProvider } from "./components/form/FormContextProvider";
+import { SecondStep } from "./ui/second-step/second-step";
 
 const App = () => {
   const [currentStep, setCurrentStep] = useState(1);
-  const [selectedPlan, setSelectedPlan] = useState<string>("monthly");
+  const [selectedPlan, setSelectedPlan] = useState<string>("");
 
   return (
     <FormProvider>
@@ -18,7 +18,10 @@ const App = () => {
           <div className="md:mt-12">
             {currentStep === 1 && <FirstStep setCurrentStep={setCurrentStep} />}
             {currentStep === 2 && (
-              <SecondPage setCurrentStep={setCurrentStep} />
+              <SecondStep
+                setCurrentStep={setCurrentStep}
+                setSelectedPlan={setSelectedPlan}
+              />
             )}
             {currentStep === 3 && (
               <ThirdStep

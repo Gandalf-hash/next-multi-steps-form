@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { FirstStepProps } from "../first-step/first-step";
 import { AppHeading } from "@/app/components/heading/heading";
 import { AppAddOnsMonthlyPlan } from "./monthly-plans";
@@ -10,7 +10,10 @@ interface ThirdStepProps extends FirstStepProps {
   selectedPlan: string;
 }
 
-export const ThirdStep = ({ setCurrentStep, selectedPlan }: ThirdStepProps) => {
+export const ThirdStep = ({
+  setCurrentStep,
+  selectedPlan = "monthly",
+}: ThirdStepProps) => {
   const handleNextStep = () => {
     setCurrentStep((prevStep) => prevStep + 1);
   };
@@ -18,6 +21,7 @@ export const ThirdStep = ({ setCurrentStep, selectedPlan }: ThirdStepProps) => {
   const handleBackStep = () => {
     setCurrentStep((prevStep) => prevStep - 1);
   };
+  console.log("Selected Plan:", selectedPlan);
 
   return (
     <div className="animate-fadeIn flex flex-col max-w-lg xl:max-w-xl w-full ">
@@ -25,7 +29,7 @@ export const ThirdStep = ({ setCurrentStep, selectedPlan }: ThirdStepProps) => {
         heading={"Pick add-ons"}
         description={"Add-ons help enhance your gaming experience."}
       />
-      {selectedPlan ? (
+      {selectedPlan === "monthly" ? (
         <AppAddOnsMonthlyPlan currentPlan="monthly" />
       ) : (
         <AppAddOnsYearlyPlan currentPlan="yearly" />

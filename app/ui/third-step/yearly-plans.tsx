@@ -45,7 +45,7 @@ export const AppAddOnsYearlyPlan = ({
 
   return (
     <div className="flex gap-6 flex-col justify-center">
-      {currentPlan &&
+      {currentPlan === "yearly" &&
         yearlyData.map(({ service, desc, amount }) => (
           <label
             key={service}

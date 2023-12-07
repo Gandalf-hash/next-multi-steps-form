@@ -7,21 +7,30 @@ import { AppToggleSwitch } from "@/app/components/toggle-switch/toggle-switch";
 import { AppBackButton } from "@/app/components/button/back-button";
 import { AppPrimaryButton } from "@/app/components/button/next-button";
 
-interface SecondStepProps extends FirstStepProps {}
+interface SecondStepProps extends FirstStepProps {
+  setSelectedPlan: React.Dispatch<React.SetStateAction<string>>;
+}
 
-function SecondPage({ setCurrentStep }: SecondStepProps) {
-  const [isMonthly, setIsMonthly] = useState(false);
+export const SecondStep = ({
+  setCurrentStep,
+  setSelectedPlan,
+}: SecondStepProps) => {
+  const [selectedPlan, setSelectedPlanState] = useState("monthly");
 
   const handleBackStep = () => {
     setCurrentStep((prevStep) => prevStep - 1);
   };
 
   const handleNextStep = () => {
+    setSelectedPlan(selectedPlan);
     setCurrentStep((prevStep) => prevStep + 1);
   };
 
   const handleToggleChange = () => {
-    setIsMonthly((prev) => !prev);
+    setSelectedPlanState((prev) => {
+      const newPlan = prev === "monthly" ? "yearly" : "monthly";
+      return newPlan;
+    });
   };
 
   return (
@@ -32,15 +41,15 @@ function SecondPage({ setCurrentStep }: SecondStepProps) {
             heading={"Select your plan"}
             description={"You have the option of monthly or yearly billing."}
           />
-          {isMonthly ? (
-            <AppYearlyPlan currentPlan="yearly" />
+          {selectedPlan === "monthly" ? (
+            <AppMonthlyPlan currentPlan={selectedPlan} />
           ) : (
-            <AppMonthlyPlan currentPlan="monthly" />
+            <AppYearlyPlan currentPlan={selectedPlan} />
           )}
         </div>
         <div className="flex justify-center mt-8">
           <AppToggleSwitch
-            checked={isMonthly}
+            checked={selectedPlan === "yearly"}
             onToggleChange={handleToggleChange}
           />
         </div>
@@ -55,6 +64,4 @@ function SecondPage({ setCurrentStep }: SecondStepProps) {
       </div>
     </>
   );
-}
-
-export default SecondPage;
+};
