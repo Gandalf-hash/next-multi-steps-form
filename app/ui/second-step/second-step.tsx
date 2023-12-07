@@ -10,13 +10,15 @@ import { AppPrimaryButton } from "@/app/components/button/next-button";
 interface SecondStepProps extends FirstStepProps {}
 
 function SecondPage({ setCurrentStep }: SecondStepProps) {
+  const [isMonthly, setIsMonthly] = useState(false);
+
   const handleBackStep = () => {
     setCurrentStep((prevStep) => prevStep - 1);
   };
+
   const handleNextStep = () => {
     setCurrentStep((prevStep) => prevStep + 1);
   };
-  const [isMonthly, setIsMonthly] = useState(true);
 
   const handleToggleChange = () => {
     setIsMonthly((prev) => !prev);
@@ -24,17 +26,21 @@ function SecondPage({ setCurrentStep }: SecondStepProps) {
 
   return (
     <>
-      <div className="flex flex-col h-full">
+      <div className="animate-fadeIn flex flex-col h-full">
         <div className="flex flex-col max-w-lg xl:max-w-xl w-full">
           <AppHeading
             heading={"Select your plan"}
-            description={" You have the option of monthly or yearly billing."}
+            description={"You have the option of monthly or yearly billing."}
           />
-          {isMonthly ? <AppMonthlyPlan /> : <AppYearlyPlan />}
+          {isMonthly ? (
+            <AppYearlyPlan currentPlan="yearly" />
+          ) : (
+            <AppMonthlyPlan currentPlan="monthly" />
+          )}
         </div>
         <div className="flex justify-center mt-8">
           <AppToggleSwitch
-            checked={!isMonthly}
+            checked={isMonthly}
             onToggleChange={handleToggleChange}
           />
         </div>

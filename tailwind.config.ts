@@ -25,6 +25,19 @@ const config: Config = {
         "gs-medium": ["Ubuntu-Medium", "sans-serif"],
         "gs-bold": ["Ubuntu-Bold", "sans-serif"],
       },
+      keyframes: {
+        fadeInAnimation: {
+          "0%": {
+            opacity: "0",
+          },
+          "100%": {
+            opacity: "1",
+          },
+        },
+      },
+      animation: {
+        fadeIn: "fadeInAnimation 0.3s ease-in-out",
+      },
     },
   },
   plugins: [],
