@@ -55,7 +55,7 @@ export const AppYearlyPlan = ({
                 width={45}
                 height={45}
               />
-              <div className="flex flex-col  mt-auto">
+              <div className="flex flex-col mt-auto">
                 <span className="font-bold lg:text-lg text-olympian-blue">
                   {plan}
                 </span>

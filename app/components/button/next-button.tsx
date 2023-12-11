@@ -2,7 +2,7 @@ import { clsx } from "clsx";
 import React, { ReactNode } from "react";
 
 interface ButtonProps {
-  onClick: () => void;
+  onClick?: () => void;
   children?: ReactNode;
   disabled: boolean;
   className: string;

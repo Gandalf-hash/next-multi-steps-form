@@ -22,8 +22,10 @@ const chooseMonthlyPlan = [
 
 export const AppMonthlyPlan = ({
   currentPlan = "monthly",
+  onSelectPlan,
 }: {
   currentPlan: string;
+  onSelectPlan: (plan: string) => void;
 }) => {
   const [selectedMonthlyPlan, setSelectedMonthlyPlan] = useState(
     chooseMonthlyPlan[0].plan
@@ -31,6 +33,7 @@ export const AppMonthlyPlan = ({
 
   const handlePlanClick = (plan: string) => {
     setSelectedMonthlyPlan(plan);
+    onSelectPlan(plan);
   };
 
   return (

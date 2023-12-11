@@ -22,8 +22,11 @@ export const SecondStep = ({
   };
 
   const handleNextStep = () => {
-    setSelectedPlan(selectedPlan);
+    setSelectedPlanState(selectedPlan);
     setCurrentStep((prevStep) => prevStep + 1);
+  };
+  const handlePlanSelection = (plan: string) => {
+    setSelectedPlan(plan);
   };
 
   const handleToggleChange = () => {
@@ -42,7 +45,10 @@ export const SecondStep = ({
             description={"You have the option of monthly or yearly billing."}
           />
           {selectedPlan === "monthly" ? (
-            <AppMonthlyPlan currentPlan={selectedPlan} />
+            <AppMonthlyPlan
+              currentPlan={selectedPlan}
+              onSelectPlan={handlePlanSelection}
+            />
           ) : (
             <AppYearlyPlan currentPlan={selectedPlan} />
           )}

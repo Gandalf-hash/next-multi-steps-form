@@ -16,6 +16,7 @@ const config: Config = {
         "radio-checked": "#BEE2FA",
         "ghost-white": "#F8F9FE",
         "violet-mix": "#ADA5CC",
+        "lavender-blue-shadow": "#938CFC",
       },
       variants: {
         backgroundColor: ["responsive", "focus", "hover", "active"],
