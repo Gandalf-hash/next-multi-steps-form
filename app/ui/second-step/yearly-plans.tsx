@@ -1,6 +1,6 @@
 import { clsx } from "clsx";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const chooseYearlyPlan = [
   {
@@ -32,7 +32,19 @@ export const AppYearlyPlan = ({
     chooseYearlyPlan[0].plan
   );
 
+  useEffect(() => {
+    // Get the selected plan from localStorage
+    const storedPlan = localStorage.getItem("selectedYearlyPlan");
+
+    // If there's a stored plan, set it to the component's state
+    if (storedPlan) {
+      setSelectedYearlyPlan(storedPlan);
+    }
+  }, []);
+
   const handlePlanClick = (plan: string) => {
+    // Store the selected plan in localStorage
+    localStorage.setItem("selectedYearlyPlan", plan);
     setSelectedYearlyPlan(plan);
   };
 
