@@ -22,15 +22,15 @@ export const SecondStep = ({
   };
 
   const handleNextStep = () => {
-    setSelectedPlanState(selectedPlan);
-    setCurrentStep((prevStep) => prevStep + 1);
+    setSelectedPlan(selectedPlan);
+    setCurrentStep((prevStep: number) => prevStep + 1);
   };
   const handlePlanSelection = (plan: string) => {
     setSelectedPlan(plan);
   };
 
   const handleToggleChange = () => {
-    setSelectedPlanState((prev) => {
+    setSelectedPlanState((prev: string) => {
       const newPlan = prev === "monthly" ? "yearly" : "monthly";
       return newPlan;
     });
