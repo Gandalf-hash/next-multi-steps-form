@@ -1,6 +1,6 @@
 import { clsx } from "clsx";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const chooseMonthlyPlan = [
   {
@@ -31,9 +31,18 @@ export const AppMonthlyPlan = ({
     chooseMonthlyPlan[0].plan
   );
   const handlePlanClick = (plan: string) => {
+    localStorage.setItem("selectedMonthlyPlan", plan);
     setSelectedMonthlyPlan(plan);
     onSelectPlan(plan);
   };
+
+  useEffect(() => {
+    const storedPlan = localStorage.getItem("selectedMonthlyPlan");
+
+    if (storedPlan) {
+      setSelectedMonthlyPlan(storedPlan);
+    }
+  }, []);
 
   return (
     <div className="plan-container">
